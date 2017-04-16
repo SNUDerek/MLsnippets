@@ -1,0 +1,51 @@
+necessary packages:
+nltk
+sklearn
+numpy
+tensorflow==0.12 or tensorflow-gpu==0.12
+Keras==1.2.2
+h5py (hdf5 for python - lets you save model weights in compact form)
+gym (openAI gym)
+
+other stuff:
+pandas (for data manipulation)
+mlxtend (extended machine learning toolkit)
+
+documentation:
+http://scikit-learn.org/stable/index.html
+https://faroit.github.io/keras-docs/1.2.2/layers/recurrent/
+
+proprocessing:
+http://www.nltk.org/howto/stem.html
+http://stackoverflow.com/questions/265960/best-way-to-strip-punctuation-from-a-string-in-python
+
+random forest:
+https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/
+http://blog.citizennet.com/blog/2012/11/10/random-forests-ensembles-and-performance-metrics
+
+multiclass tfidf:
+https://gist.github.com/prinsherbert/92313f15fc814d6eed1e36ab4df1f92d
+
+gradient boosting:
+http://blog.kaggle.com/2017/01/23/a-kaggle-master-explains-gradient-boosting/
+http://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/
+
+how to deal with imbalanced classes:
+http://machinelearningmastery.com/tactics-to-combat-imbalanced-classes-in-your-machine-learning-dataset/
+http://machinelearningmastery.com/get-your-hands-dirty-with-scikit-learn-now/
+http://machinelearningmastery.com/classification-accuracy-is-not-enough-more-performance-measures-you-can-use/
+http://stackoverflow.com/questions/15065833/imbalance-in-scikit-learn
+
+cnn-rnn classifier:
+http://machinelearningmastery.com/sequence-classification-lstm-recurrent-neural-networks-python-keras/
+http://machinelearningmastery.com/multi-class-classification-tutorial-keras-deep-learning-library/
+stacked RNNs: https://github.com/fchollet/keras/issues/160
+bi-RNN: https://github.com/fchollet/keras/blob/master/examples/imdb_bidirectional_lstm.py
+multi-gpu: https://blog.keras.io/keras-as-a-simplified-interface-to-tensorflow-tutorial.html
+
+sequence to sequence in keras:
+https://gist.github.com/rouseguy/1122811f2375064d009dac797d59bae9
+
+reinforcement learning tutorials:
+from https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-0-q-learning-with-tables-and-neural-networks-d195264329d0
+https://medium.com/@awjuliani/super-simple-reinforcement-learning-tutorial-part-1-fd544fab149
