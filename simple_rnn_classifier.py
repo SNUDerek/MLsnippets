@@ -1,9 +1,12 @@
 # this is a simple cnn-rnn classifier
+# it uses two files: see the 'load the data.' section
+# one file for documents, one file for labels
+# adjust the load the data section to use dataframe etc
 
 import codecs, re
 import numpy as np
 
-# Scikit-Learn and NLTK for preprocessing
+# Scikit-Learn and NLTK for preprocessing ENGLISH data
 from nltk.stem.snowball import SnowballStemmer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
@@ -21,9 +24,9 @@ from keras.models import save_model, load_model
 
 
 # parameters
-MAX_VOCAB = 18000
-MAX_LENGTH = 50
-EMBEDDING_SIZE = 64
+MAX_VOCAB = 18000    # limit total vocabulary
+MAX_LENGTH = 100	 # maximum number of words per 'document' (sent etc)
+EMBEDDING_SIZE = 64	 # embedding size (trainable randomized embeddings)
 BATCH_SIZE = 32
 MAX_EPOCHS = 25
 DROPOUT_RATE = 0.4
@@ -44,7 +47,7 @@ labels = [label.strip() for label in f_classes.readlines()]
 num_labels = len(set(labels))
 
 # we can create a custom tokenizer to clean and preprocess the data.
-print("Fitting tokenizer...\n")
+
 
 # we can use tokenizing function using sklearn, etc here
 # so we can get fancy here with stopwords, etc
@@ -56,11 +59,6 @@ def tokenize(sentence):
     result = [stemmer.stem(word) for word in wordlist]
     return result
 
-
-# get count vectors
-# https://github.com/fchollet/keras/issues/17
-sentvectorizer = CountVectorizer(tokenizer=tokenize, max_features=MAX_VOCAB-1)
-sentvectorizer.fit(sents)
 
 # prepare labels
 print("Preparing labels...\n")
