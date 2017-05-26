@@ -75,11 +75,18 @@ X_train, X_test, y_train, y_test = train_test_split(sents, labels, test_size=0.2
 train_sents = X_train
 test_sents = X_test
 
-X_train = sentvectorizer.transform(X_train)
-X_train =[row.indices for row in X_train]
 
-X_test = sentvectorizer.transform(X_test)
-X_test =[row.indices for row in X_test]
+# integer-index with dataset.py
+print("integer-indexing input and output...\n")
+cvectorizer = CountVectorizer(analyzer='char')
+cvectorizer.fit(X_train)
+X_vocab = cvectorizer.vocabulary_
+
+vocab_size = len(X_vocab) + 1
+
+X_train = index_sents(X_train, X_vocab, vocab_size)
+X_test = index_sents(X_test, X_vocab, vocab_size)
+
 
 # truncate and pad input sequences
 X_train = sequence.pad_sequences(X_train, maxlen=MAX_LENGTH)
