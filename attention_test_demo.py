@@ -2,11 +2,13 @@ import tensorflow as tf
 from keras import backend as K
 import numpy as np
 from keras.models import Sequential
-from keras.engine.training import slice_X
+from keras.engine.training import _slice_arrays
 from keras.layers import Activation, TimeDistributed, Dense, RepeatVector, recurrent
 from keras.callbacks import EarlyStopping
 sess = tf.Session()
 K.set_session(sess)
+
+from attention import Attention
 
 # Parameters for the model and dataset
 TRAINING_SIZE = 50000
@@ -17,9 +19,9 @@ INVERT = True
 HIDDEN_SIZE = 200
 BATCH_SIZE = 100
 LAYERS = 2
-MAX_EPOCHS = 100
+MAX_EPOCHS = 5
 # Try replacing with LSTM, GRU, or SimpleRNN
-RNN = recurrent.GRU
+RNN = recurrent.LSTM
 
 stop_monitor = 'val_acc'  # variable for early stop: (default = val_loss)
 stop_delta = 0.0  # minimum delta before early stop (default = 0)
@@ -104,7 +106,7 @@ y = y[indices]
 
 # Explicitly set apart 20% for validation data that we never train over
 split_at = int(len(X) - len(X) / 20)
-(X_train, X_val) = (slice_X(X, 0, split_at), slice_X(X, split_at))
+(X_train, X_val) = (_slice_arrays(X, 0, split_at), _slice_arrays(X, split_at))
 (y_train, y_val) = (y[:split_at], y[split_at:])
 
 print(X_train.shape)
@@ -119,9 +121,10 @@ model = Sequential()
 # note: in a situation where your input sequences have a variable length,
 # use input_shape=(None, nb_feature).
 model.add(RNN(HIDDEN_SIZE, return_sequences=True, input_shape=(MAXLEN, len(chars))))
-# todo : for trying multi-layer
-# model.add(RNN(HIDDEN_SIZE, return_sequences=True))
-model.add(RNN(HIDDEN_SIZE))
+# todo : for trying attention
+model.add(RNN(HIDDEN_SIZE, return_sequences=True))
+model.add(Attention())
+# model.add(RNN(HIDDEN_SIZE))
 # For the decoder's input, we repeat the encoded input for each time step
 model.add(RepeatVector(DIGITS + 1))
 # The decoder RNN could be multiple layers stacked or a single layer
@@ -159,7 +162,7 @@ model.fit(X_train, y_train,
           validation_data=(X_val, y_val),
           batch_size=BATCH_SIZE,
           nb_epoch=MAX_EPOCHS,
-          callbacks=callbacks_list,
+          # callbacks=callbacks_list,
           verbose=1)
 
 ###

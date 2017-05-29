@@ -1,12 +1,9 @@
 # this is a simple cnn-rnn classifier
-# it uses two files: see the 'load the data.' section
-# one file for documents, one file for labels
-# adjust the load the data section to use dataframe etc
 
 import codecs, re
 import numpy as np
 
-# Scikit-Learn and NLTK for preprocessing ENGLISH data
+# Scikit-Learn and NLTK for preprocessing
 from nltk.stem.snowball import SnowballStemmer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
@@ -24,9 +21,9 @@ from keras.models import save_model, load_model
 
 
 # parameters
-MAX_VOCAB = 18000    # limit total vocabulary
-MAX_LENGTH = 100	 # maximum number of words per 'document' (sent etc)
-EMBEDDING_SIZE = 64	 # embedding size (trainable randomized embeddings)
+MAX_VOCAB = 18000
+MAX_LENGTH = 50
+EMBEDDING_SIZE = 64
 BATCH_SIZE = 32
 MAX_EPOCHS = 25
 DROPOUT_RATE = 0.4
@@ -47,7 +44,7 @@ labels = [label.strip() for label in f_classes.readlines()]
 num_labels = len(set(labels))
 
 # we can create a custom tokenizer to clean and preprocess the data.
-
+print("Fitting tokenizer...\n")
 
 # we can use tokenizing function using sklearn, etc here
 # so we can get fancy here with stopwords, etc
@@ -59,6 +56,11 @@ def tokenize(sentence):
     result = [stemmer.stem(word) for word in wordlist]
     return result
 
+
+# get count vectors
+# https://github.com/fchollet/keras/issues/17
+sentvectorizer = CountVectorizer(tokenizer=tokenize, max_features=MAX_VOCAB-1)
+sentvectorizer.fit(sents)
 
 # prepare labels
 print("Preparing labels...\n")
@@ -73,18 +75,11 @@ X_train, X_test, y_train, y_test = train_test_split(sents, labels, test_size=0.2
 train_sents = X_train
 test_sents = X_test
 
+X_train = sentvectorizer.transform(X_train)
+X_train =[row.indices for row in X_train]
 
-# integer-index with dataset.py
-print("integer-indexing input and output...\n")
-cvectorizer = CountVectorizer(analyzer='char')
-cvectorizer.fit(X_train)
-X_vocab = cvectorizer.vocabulary_
-
-vocab_size = len(X_vocab) + 1
-
-X_train = index_sents(X_train, X_vocab, vocab_size)
-X_test = index_sents(X_test, X_vocab, vocab_size)
-
+X_test = sentvectorizer.transform(X_test)
+X_test =[row.indices for row in X_test]
 
 # truncate and pad input sequences
 X_train = sequence.pad_sequences(X_train, maxlen=MAX_LENGTH)
@@ -100,7 +95,9 @@ y_test = np.eye(num_labels)[y_test]
 # check data
 print(X_train[0])
 print(y_train[0])
+print(np.shape(y_test))
 print('')
+
 
 '''
 for small sentences, a deep RNN without any convolutional layers works well

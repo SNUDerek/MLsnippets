@@ -10,13 +10,12 @@ from nltk.corpus import brown
 lower_lim = 8       # minimum words per sentence
 upper_lim = 100     # maximum words per sentence
 max_ex = 1000       # maximum examples per genre
-max_clusters = 2    # sentences per example
+max_clusters = 5    # sentences per example
 
 sents = codecs.open('datasets/brown_sents.txt', 'w', encoding='utf-8')
 classes = codecs.open('datasets/brown_topics.txt', 'w', encoding='utf-8')
 
-topics = ['adventure', 'religion', 'learned', 'government', 'humor', 'romance', 'lore',
-          'mystery', 'news', 'science_fiction']
+topics = ['religion', 'government', 'romance', 'news', 'science_fiction']
 
 '''
 choose some from the following genres:

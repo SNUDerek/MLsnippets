@@ -21,8 +21,8 @@ from sklearn.metrics import f1_score
 # each sample should be one line
 print("Loading data...\n")
 
-f_sents = codecs.open('datasets/brown_sents.txt', 'rb', encoding='utf8')
-f_classes = codecs.open('datasets/brown_topics.txt', 'rb', encoding='utf8')
+f_sents = codecs.open('datasets/met_corpus.txt', 'rb', encoding='utf8')
+f_classes = codecs.open('datasets/met_labels.txt', 'rb', encoding='utf8')
 sents = [sent.strip() for sent in f_sents.readlines()]
 labels = [label.strip() for label in f_classes.readlines()]
 

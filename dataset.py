@@ -1,8 +1,7 @@
 import codecs, re, random
 from collections import Counter
 import numpy as np
-from separator import Separator
-from konlpy.tag import Mecab
+
 
 # indexes sentences by vocab frequency list
 # reserves 0 for UNKs
@@ -51,7 +50,6 @@ def get_texts(file_corpus, testing=0):
         counter += 1
     return(sents, heads)
 
-
 # function to get vocab, maxvocab
 # takes list : sents
 def get_vocab(sents, heads, testing=0):
@@ -75,11 +73,10 @@ def get_vocab(sents, heads, testing=0):
 
     return(sorted_vocab)
 
-
 # function to convert sents to vectors
 # takes list : sents, int : max vocab
 # returns list of vectors (as lists)
-def index_sents(sents, vocab, max_vocab, testing=0):
+def vectorize_sents(sents, vocab, max_vocab, testing=0):
     if testing==1:
         print("starting vectorize_sents()...")
     # get sorted vocab
@@ -87,17 +84,16 @@ def index_sents(sents, vocab, max_vocab, testing=0):
     # iterate thru sents
     for sent in sents:
         sent_vect = []
-        sentlist = sent.split(' ')
-        for word in sentlist:
-            if word in vocab.keys():
-                idx = vocab[word] + 1 # reserve 0 for UNK / OOV
-                if idx < max_vocab: # in max_vocab range
-                    sent_vect.append(idx)
-            else: # out of max_vocab range or OOV
+        for word in sent:
+            idx = vocab.index(word) + 1 # reserve 0 for UNK / OOV
+            if idx < max_vocab: # in max_vocab range
+                sent_vect.append(idx)
+            else: # out of max_vocab range
                 sent_vect.append(0)
         vectors.append(sent_vect)
+    if testing==1:
+        print("vectorize_sents[:10]:", vectors[:10])
     return(vectors)
-
 
 def onehot_vectorize_sents(sents, vocab, max_vocab, testing=0):
     if testing==1:
@@ -121,39 +117,37 @@ def onehot_vectorize_sents(sents, vocab, max_vocab, testing=0):
         print("onehot_vectorize_sents[:10]:", vectors[0])
     return(vectors)
 
+# function to randomize and test-train split
+# takes sent list, class list
+# returns train sents, train heads, test sents, test heads
+def get_test_train(sents, heads, trainsize=0.8, max_vocab=25000, testing=0):
 
-# function to return lists of graphemes
-# takes sentence as string
-# returns list of graphemes
-def grapheme_splitter(sent):
-    sentlist = sent.strip().split(' ')
-    graphlist = []
-    for word in sentlist:
-        wordlist = list(word)
-        for syllable in wordlist:
-            # find korean words
-            if re.findall(r'[[\uac00-\ud7a3]|[\u1100-\u11ff]]+', syllable):
-                graphlist += Separator(syllable).sep_all
-            else:
-                graphlist.append(syllable)
-    return graphlist
+    vocab = get_vocab(sents, heads, testing=testing)
+    sent_vectors =  vectorize_sents(sents, vocab, max_vocab, testing=testing)
+    head_vectors =  onehot_vectorize_sents(heads, vocab, max_vocab, testing=testing)
 
+    # get list entry ... list?
+    entries = []
+    for i in range(len(sent_vectors)):
+        entries.append(i)
 
-# function to return lexicalized morphs from mecab
-# takes sentence as string
-# returns space-separated string of lexicalized morphemes
-def mecab_tokenize(sent):
+    # shuffle indices for randomization
+    shuffled = random.sample(entries, len(entries))
+    # stop size for train set
+    train_stop = int(len(shuffled)*trainsize)
 
+    train_X = []
+    train_y = []
+    test_X = []
+    test_y = []
 
-    return
+    for j in range(len(shuffled)):
+        idx = shuffled[j] # get random index
+        if j < train_stop:
+            train_X.append(sent_vectors[idx])
+            train_y.append(head_vectors[idx])
+        else:
+            test_X.append(sent_vectors[idx])
+            test_y.append(head_vectors[idx])
 
-def kkma_tokenize(sents):
-    from konlpy.tag import Kkma
-    kkma = Kkma()
-    lex_sents = []
-    # POS-tag and get lexical form from morphemes using KONLPY
-    for sent in sents:
-        lex_sents.append(' '.join(kkma.morphs(sent)))
-        if len(lex_sents) % 200 == 0:
-            print("kkma: done", len(lex_sents), "of", len(sents), "total")
-    return lex_sents
+    return(train_X, train_y, test_X, test_y)
