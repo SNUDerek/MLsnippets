@@ -41,6 +41,7 @@ class Vector(object):
                 raise ValueError
 
             result = [x+y for x, y in zip(self.coordinates, vec.coordinates)]
+
             return(Vector(result))
 
         except ValueError:
@@ -53,6 +54,7 @@ class Vector(object):
                 raise ValueError
 
             result = [x-y for x, y in zip(self.coordinates, vec.coordinates)]
+
             return(Vector(result))
 
         except ValueError:
