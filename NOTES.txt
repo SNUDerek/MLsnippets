@@ -15,6 +15,20 @@ output = [[0, 0, 1],
           [1, 1, 0],
           [1, 1, 1],
           [0, 0, 0]]
+          
+def decoder(vect):
+    answer = []
+    for item in vect.tolist():
+        if item > 0.5:
+            answer.append(1)
+        else:
+            answer.append(0)
+    return answer
+
+for idx in range(len(input)):
+    print("input:", input[idx], "true:", output[idx], "pred:", decoder(preds[idx]))
+    
+    
 
 
 necessary packages:
