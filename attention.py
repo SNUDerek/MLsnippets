@@ -14,7 +14,8 @@ class Attention(Layer):
     # Input shape
         3D tensor with shape: `(samples, steps, features)`.
     # Output shape
-        2D tensor with shape: `(samples, features)`.
+        original: 2D tensor with shape: `(samples, features)`.
+        new: 3D tensor with shape: `(samples, steps, features)`.
     :param kwargs:
     Just put it on top of an RNN Layer (GRU/LSTM/SimpleRNN) with return_sequences=True.
     The dimensions are inferred based on the output shape of the RNN.
@@ -92,8 +93,6 @@ class Attention(Layer):
         # a /= K.cast(K.sum(a, axis=1, keepdims=True), K.floatx())
         a /= K.cast(K.sum(a, axis=1, keepdims=True) + K.epsilon(), K.floatx())
 
-        a = K.expand_dims(a)
-        weighted_input = x * a
         a = K.expand_dims(a)
         weighted_input = x * a
         # todo: edited here to return each timestep:
