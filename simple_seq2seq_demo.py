@@ -2,9 +2,10 @@ import tensorflow as tf
 from keras import backend as K
 import numpy as np
 from keras.models import Sequential
-from keras.engine.training import slice_X
+from keras.engine.training import _slice_arrays
 from keras.layers import Activation, TimeDistributed, Dense, RepeatVector, recurrent
 from keras.callbacks import EarlyStopping
+
 sess = tf.Session()
 K.set_session(sess)
 
@@ -104,7 +105,7 @@ y = y[indices]
 
 # Explicitly set apart 20% for validation data that we never train over
 split_at = int(len(X) - len(X) / 20)
-(X_train, X_val) = (slice_X(X, 0, split_at), slice_X(X, split_at))
+(X_train, X_val) = (_slice_arrays(X, 0, split_at), _slice_arrays(X, split_at))
 (y_train, y_val) = (y[:split_at], y[split_at:])
 
 print(X_train.shape)
