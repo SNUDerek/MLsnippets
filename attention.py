@@ -94,7 +94,15 @@ class Attention(Layer):
 
         a = K.expand_dims(a)
         weighted_input = x * a
-        return K.sum(weighted_input, axis=1)
+        a = K.expand_dims(a)
+        weighted_input = x * a
+        # todo: edited here to return each timestep:
+        # todo: x is the h_it output from the encoder RNN
+        # todo: a is the entire attention matrix for each a_it vector
+        # todo: so simple multiplication should be (_, seq length, features)
+        # todo: the sum below is only for averaging in classification tasks:
+        # return K.sum(weighted_input, axis=1)
+        return weighted_input
 
     def get_output_shape_for(self, input_shape):
         return input_shape[0], input_shape[-1]
