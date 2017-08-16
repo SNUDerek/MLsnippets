@@ -63,7 +63,9 @@ see: `simple_classifiers.py`, `brown_corp_generator.py` to generate dataset
 also: `cluster.ipynb` jupyter notebook for LSA/LDA
 
 also: `FeatureUnion` for multiple inputs:
+
 http://zacstewart.com/2014/08/05/pipelines-of-featureunions-of-pipelines.html
+
 http://michelleful.github.io/code-blog/2015/06/20/pipelines/
 
 
@@ -71,13 +73,16 @@ http://michelleful.github.io/code-blog/2015/06/20/pipelines/
 
 read: 
 http://machinelearningmastery.com/binary-classification-tutorial-with-the-keras-deep-learning-library/
+
 http://machinelearningmastery.com/multi-class-classification-tutorial-keras-deep-learning-library/
 
 see: `simple_rnn_classifier.py`
 
 also:
 **Computerphile** videos on the CNN:
+
 https://www.youtube.com/watch?v=py5byOOHZM8
+
 https://www.youtube.com/watch?v=BFdMrDOx_CM
 
 
@@ -104,7 +109,9 @@ https://bi.snu.ac.kr/Courses/ann16f/presenter/LA_Derek.pptx
 
 read:
 https://theses.lib.vt.edu/theses/available/etd-5414132139711101/unrestricted/ch3.pdf
+
 http://stackoverflow.com/questions/4437250/choose-list-variable-given-probability-of-each-variable
+
 https://www.researchgate.net/figure/225274789_fig10_Figure-2-Pseudo-code-of-variable-structure-learning-automaton
 
 see: `VSLA_demo.py`
@@ -125,14 +132,17 @@ mlxtend (extended machine learning toolkit)
 
 ### documentation:
 http://scikit-learn.org/stable/index.html
+
 https://keras.io
 
 ### proprocessing:
 http://www.nltk.org/howto/stem.html
+
 http://stackoverflow.com/questions/265960/best-way-to-strip-punctuation-from-a-string-in-python
 
 ### random forest:
 https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/
+
 http://blog.citizennet.com/blog/2012/11/10/random-forests-ensembles-and-performance-metrics
 
 ### multiclass tfidf:
@@ -140,10 +150,14 @@ https://gist.github.com/prinsherbert/92313f15fc814d6eed1e36ab4df1f92d
 
 ### gradient boosting:
 http://blog.kaggle.com/2017/01/23/a-kaggle-master-explains-gradient-boosting/
+
 http://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/
 
 ### how to deal with imbalanced classes:
 http://machinelearningmastery.com/tactics-to-combat-imbalanced-classes-in-your-machine-learning-dataset/
+
 http://machinelearningmastery.com/get-your-hands-dirty-with-scikit-learn-now/
+
 http://machinelearningmastery.com/classification-accuracy-is-not-enough-more-performance-measures-you-can-use/
+
 http://stackoverflow.com/questions/15065833/imbalance-in-scikit-learn
