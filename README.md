@@ -25,6 +25,8 @@ Word2Vec embeddings with gensim: `embedding.py`
 
 using custom embeddings in keras network: `cnn_custom_embeddings.py`
 
+exploratory data analysis with `pandas`:
+https://www.analyticsvidhya.com/blog/2016/01/complete-tutorial-learn-data-science-python-scratch-2/
 
 ## 0. basic linear algebra and python classes
 
