@@ -4,6 +4,7 @@
 
 import codecs, re
 from nltk.corpus import brown
+import pandas as pd
 
 # ################## edit params here ##################
 
@@ -40,6 +41,9 @@ striplist = ["`", "'", '!', '?', '.', ',', ':', ';', '-', '(', ')', ]
 
 counts_list = []
 
+csv_sents = []
+csv_labels = []
+
 for topic in topics:
     good_count = 0 # for counting good sentences
     this_counter = 0
@@ -61,10 +65,12 @@ for topic in topics:
             else:
                 good_count += 1
                 sents.write(this_cluster)
+                csv_sents.append(this_cluster)
                 this_cluster = ''
                 sents.write('\n')
                 classes.write(topic)
                 classes.write('\n')
+                csv_labels.append(topic)
                 this_counter = 0
 
             print(good_count, "sentence (clusters) for", topic)
@@ -72,6 +78,11 @@ for topic in topics:
                 break
 
     counts_list.append(good_count)
+
+dicto = {'document' : csv_sents,
+         'topic' : csv_labels}
+df = pd.DataFrame.from_dict(dicto)
+df.to_csv('datasets/brown.csv', sep='\t')
 
 print(sum(counts_list), counts_list)
 

@@ -10,10 +10,11 @@ print("table lookup Q-learning\n")
 
 #Initialize table with all zeros
 Q = np.zeros([env.observation_space.n,env.action_space.n])
+print(np.shape(Q))
 # Set learning parameters
 lr = .85
 y = .99
-num_episodes = 5000
+num_episodes = 100
 #create lists to contain total rewards and steps per episode
 #jList = []
 rList = []
@@ -43,5 +44,5 @@ for i in range(num_episodes):
         print("Score over time: " +  str(sum(rList)/num_episodes))
 
 print("Percent of succesful episodes: " + str(sum(rList)/num_episodes) + "%")
-#print("Final Q-Table Values")
-#print(Q)
+print("Final Q-Table Values")
+print(Q)
