@@ -46,7 +46,7 @@ see: `mycounter.py`for template, fuller network at `simple_keras_counter.py`
 
 read:http://zacstewart.com/2015/04/28/document-classification-with-scikit-learn.html
 
-see: `simple_classifiers.py`, `brown_corp_generator.py` to generate alternate dataset
+see: `simple_classifiers.py`, `brown_corp_generator.py` to generate dataset
 
 also: `cluster.ipynb` jupyter notebook for LSA/LDA
 
