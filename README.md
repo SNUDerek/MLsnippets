@@ -59,6 +59,11 @@ http://machinelearningmastery.com/multi-class-classification-tutorial-keras-deep
 
 see: `simple_rnn_classifier.py`
 
+also:
+**Computerphile** videos on the CNN:
+https://www.youtube.com/watch?v=py5byOOHZM8
+https://www.youtube.com/watch?v=BFdMrDOx_CM
+
 
 ## 4. LSTM language model for text generation
 
