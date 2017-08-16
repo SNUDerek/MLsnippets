@@ -2,31 +2,31 @@
 
 the following are a collection of code examples from our ML study group.
 
-##necessary packages:
-- numpy
-- scipy
-- nltk
-- sklearn
-- pandas (for data manipulation)
-- tensorflow or tensorflow-gpu
-- keras
-- h5py (hdf5 for python - lets you save model weights in compact form)
-- gym (openAI gym)
+## necessary packages:
+- `numpy`
+- `scipy`
+- `nltk`
+- `sklearn`
+- `pandas` (for data manipulation)
+- `tensorflow` or `tensorflow-gpu`
+- `keras`
+- `h5py` (hdf5 for python - lets you save model weights in compact form)
+- `gym` (openAI gym)
 
-##extras:
+## extras:
 - gensim for embeddings
 - jupyter notebook for easy debugging/sharing
 - mlxtend (extended machine learning toolkit)
 
 
-##Tool Tutorials:
+## Tool Tutorials:
 
 `Word2Vec` embeddings with `gensim`: `embedding.py`
 
 using custom embeddings in `keras` network: `cnn_custom_embeddings.py`
 
 
-##0. basic linear algebra and python classes
+## 0. basic linear algebra and python classes
 
 watch: https://www.udacity.com/course/linear-algebra-refresher-course--ud953
 
@@ -35,14 +35,14 @@ see: `linalg_functions_blank.py` for template, `linalg_functions.py` for solutio
 also: `clustering.ipynb` for unsupervised clustering and `gensim` LDA/LSA
 
 
-##1. basic feed-forward neural network in python
+## 1. basic feed-forward neural network in python
 
 watch: https://www.youtube.com/watch?v=WZDMNM36PsM&t=245s
 
 see: `mycounter.py`for template, fuller network at `simple_keras_counter.py`
 
 
-##2. ML classification with `scikit-learn`
+## 2. ML classification with `scikit-learn`
 
 read:http://zacstewart.com/2015/04/28/document-classification-with-scikit-learn.html
 
@@ -51,7 +51,7 @@ see: `simple_classifiers.py`, `brown_corp_generator.py` to generate alternate da
 also: `cluster.ipynb` jupyter notebook for LSA/LDA
 
 
-##3. neural classification with `keras`
+## 3. neural classification with `keras`
 
 read: 
 http://machinelearningmastery.com/binary-classification-tutorial-with-the-keras-deep-learning-library/
@@ -60,14 +60,14 @@ http://machinelearningmastery.com/multi-class-classification-tutorial-keras-deep
 see: `simple_rnn_classifier.py`
 
 
-##4. LSTM language model for text generation
+## 4. LSTM language model for text generation
 
 read: http://machinelearningmastery.com/text-generation-lstm-recurrent-neural-networks-python-keras/
 
 see: `languagemodel.py`
 
 
-##5. sequence-to-sequence `keras` network for simple addition
+## 5. sequence-to-sequence `keras` network for simple addition
 
 read: http://machinelearningmastery.com/learn-add-numbers-seq2seq-recurrent-neural-networks/
 
@@ -76,7 +76,7 @@ see: `simple_seq2seq_demo.py`
 source: https://gist.github.com/rouseguy/1122811f2375064d009dac797d59bae9
 
 
-##6. reinforement learning with VSLA
+## 6. reinforement learning with VSLA
 
 NB: programmed as demo for presentation for reinforcement learning class:
 https://bi.snu.ac.kr/Courses/ann16f/presenter/LA_Derek.pptx
@@ -89,7 +89,7 @@ https://www.researchgate.net/figure/225274789_fig10_Figure-2-Pseudo-code-of-vari
 see: `VSLA_demo.py`
 
 
-##7. reinforcement (Q-)learning with `tensorflow`
+## 7. reinforcement (Q-)learning with `tensorflow`
 
 read: https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-0-q-learning-with-tables-and-neural-networks-d195264329d0
 
