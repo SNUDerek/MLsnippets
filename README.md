@@ -21,12 +21,22 @@ the following are a collection of code examples from our ML study group.
 
 ## Tool Tutorials:
 
-Word2Vec embeddings with gensim: `embedding.py`
+### Word2Vec embeddings with gensim: 
 
-using custom embeddings in keras network: `cnn_custom_embeddings.py`
+read: https://rare-technologies.com/word2vec-tutorial/
 
-exploratory data analysis with `pandas`:
-https://www.analyticsvidhya.com/blog/2016/01/complete-tutorial-learn-data-science-python-scratch-2/
+see: `embedding.py`
+
+### using custom embeddings in keras network: 
+
+read: https://blog.keras.io/using-pre-trained-word-embeddings-in-a-keras-model.html
+
+see: `cnn_custom_embeddings.py`
+
+### exploratory data analysis with `pandas`:
+
+read: https://www.analyticsvidhya.com/blog/2016/01/complete-tutorial-learn-data-science-python-scratch-2/
+
 
 ## 0. basic linear algebra and python classes
 
