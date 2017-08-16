@@ -17,7 +17,8 @@ from sklearn.metrics import f1_score
 
 
 # load the data to classify
-# data should be in two txt/csv files (data and classes)
+# data should be in two lists
+# currently reads from two txt/csv files (data and classes)
 # each sample should be one line
 print("Loading data...\n")
 

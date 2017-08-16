@@ -25,11 +25,9 @@ model = Sequential()
 
 # add a Dense layer with sigmoid activation
 model.add(Dense(3, input_shape=(3,), activation='sigmoid'))
-model.add(Dense(3, activation='sigmoid'))
-model.add(Dense(3, activation='sigmoid'))
 
 # specified loss and "minimization"
-model.compile(loss='binary_crossentropy', optimizer='adam')
+model.compile(loss='binary_crossentropy', optimizer='SGD')
 
 model.summary()
 
