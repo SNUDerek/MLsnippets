@@ -44,11 +44,15 @@ see: `mycounter.py`for template, fuller network at `simple_keras_counter.py`
 
 ## 2. ML classification with `scikit-learn`
 
-read:http://zacstewart.com/2015/04/28/document-classification-with-scikit-learn.html
+read: http://zacstewart.com/2015/04/28/document-classification-with-scikit-learn.html
 
 see: `simple_classifiers.py`, `brown_corp_generator.py` to generate dataset
 
 also: `cluster.ipynb` jupyter notebook for LSA/LDA
+
+also: `FeatureUnion` for multiple inputs:
+http://zacstewart.com/2014/08/05/pipelines-of-featureunions-of-pipelines.html
+http://michelleful.github.io/code-blog/2015/06/20/pipelines/
 
 
 ## 3. neural classification with `keras`
