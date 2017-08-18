@@ -79,6 +79,13 @@ http://machinelearningmastery.com/multi-class-classification-tutorial-keras-deep
 see: `simple_rnn_classifier.py`
 
 also:
+http://www.developintelligence.com/blog/2017/06/practical-neural-networks-keras-classifying-yelp-reviews/
+
+https://richliao.github.io/supervised/classification/2016/12/26/textclassifier-HATN/
+
+https://offbit.github.io/how-to-read/
+
+also:
 **Computerphile** videos on the CNN:
 
 https://www.youtube.com/watch?v=py5byOOHZM8
