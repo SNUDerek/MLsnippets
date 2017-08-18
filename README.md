@@ -126,9 +126,16 @@ see: `simpleRL_0_table.py`, `simpleRL_0_ffnn.py`
 
 ## Notes, References and Links:
 
-### other stuff:
+### tools and stuff:
 pandas (for data manipulation)
 mlxtend (extended machine learning toolkit)
+
+### word embeddings:
+http://colah.github.io/posts/2014-07-NLP-RNNs-Representations/
+
+http://ruder.io/word-embeddings-1/
+
+https://www.analyticsvidhya.com/blog/2017/06/word-embeddings-count-word2veec/
 
 ### documentation:
 http://scikit-learn.org/stable/index.html
