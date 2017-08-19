@@ -27,6 +27,8 @@ read: https://rare-technologies.com/word2vec-tutorial/
 
 see: `embedding.py`
 
+extra: http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/
+
 ### using custom embeddings in keras network: 
 
 read: https://blog.keras.io/using-pre-trained-word-embeddings-in-a-keras-model.html
@@ -44,7 +46,7 @@ watch: https://www.udacity.com/course/linear-algebra-refresher-course--ud953
 
 see: `linalg_functions_blank.py` for template, `linalg_functions.py` for solutions
 
-also: `clustering.ipynb` for unsupervised clustering and `gensim` LDA/LSA
+extra: `clustering.ipynb` for unsupervised clustering and `gensim` LDA/LSA
 
 
 ## 1. basic feed-forward neural network in python
@@ -62,7 +64,7 @@ see: `simple_classifiers.py`, `brown_corp_generator.py` to generate dataset
 
 also: `cluster.ipynb` jupyter notebook for LSA/LDA
 
-also: `FeatureUnion` for multiple inputs:
+extra: `FeatureUnion` for multiple inputs:
 
 http://zacstewart.com/2014/08/05/pipelines-of-featureunions-of-pipelines.html
 
@@ -78,14 +80,14 @@ http://machinelearningmastery.com/multi-class-classification-tutorial-keras-deep
 
 see: `simple_rnn_classifier.py`
 
-also:
+extra:
 http://www.developintelligence.com/blog/2017/06/practical-neural-networks-keras-classifying-yelp-reviews/
 
 https://richliao.github.io/supervised/classification/2016/12/26/textclassifier-HATN/
 
 https://offbit.github.io/how-to-read/
 
-also:
+extra:
 **Computerphile** videos on the CNN:
 
 https://www.youtube.com/watch?v=py5byOOHZM8
