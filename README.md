@@ -149,7 +149,7 @@ http://scikit-learn.org/stable/index.html
 
 https://keras.io
 
-### proprocessing:
+### preprocessing:
 http://www.nltk.org/howto/stem.html
 
 http://stackoverflow.com/questions/265960/best-way-to-strip-punctuation-from-a-string-in-python
