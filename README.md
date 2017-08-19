@@ -46,8 +46,6 @@ watch: https://www.udacity.com/course/linear-algebra-refresher-course--ud953
 
 see: `linalg_functions_blank.py` for template, `linalg_functions.py` for solutions
 
-extra: `clustering.ipynb` for unsupervised clustering and `gensim` LDA/LSA
-
 
 ## 1. basic feed-forward neural network in python
 
