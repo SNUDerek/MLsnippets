@@ -130,6 +130,11 @@ read: https://medium.com/emergent-future/simple-reinforcement-learning-with-tens
 
 see: `simpleRL_0_table.py`, `simpleRL_0_ffnn.py`
 
+## Potential Future Lessons
+
+### reinforcement learning in Keras:
+http://edersantana.github.io/articles/keras_rl/
+
 
 ## Notes, References and Links:
 
