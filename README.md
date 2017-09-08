@@ -135,6 +135,8 @@ see: `simpleRL_0_table.py`, `simpleRL_0_ffnn.py`
 ### reinforcement learning in Keras:
 http://edersantana.github.io/articles/keras_rl/
 
+https://keon.io/deep-q-learning/
+
 
 ## Notes, References and Links:
 
