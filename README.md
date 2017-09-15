@@ -6,6 +6,7 @@ the following are a collection of code examples from our ML study group.
 - `numpy`
 - `scipy`
 - `nltk`
+- `konlpy`
 - `sklearn`
 - `pandas` (for data manipulation)
 - `tensorflow` or `tensorflow-gpu`
@@ -16,6 +17,8 @@ the following are a collection of code examples from our ML study group.
 ## extras:
 - `gensim` for embeddings
 - `jupyter notebook` for easy debugging/sharing
+- `keras-contrib` for additional `keras` layers, etc.
+- `imblearn` for balancing imbalanced datasets
 - `mlxtend` (extended machine learning toolkit)
 
 
