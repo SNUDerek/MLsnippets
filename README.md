@@ -3,7 +3,10 @@
 the following are a collection of code examples from our ML study group.
 
 ## necessary packages:
-- `numpy`
+
+`pip install` the following (all code is `python3`):
+
+- `numpy` (use `numpy+mkl` binary if using windows)
 - `scipy`
 - `nltk`
 - `konlpy`
