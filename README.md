@@ -143,6 +143,9 @@ http://edersantana.github.io/articles/keras_rl/
 
 https://keon.io/deep-q-learning/
 
+### basic NN stuff
+http://florianmuellerklein.github.io/nn/
+
 
 ## Notes, References and Links:
 
