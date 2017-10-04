@@ -233,3 +233,5 @@ class LinearRegression():
 # https://www.pyimagesearch.com/2016/10/17/stochastic-gradient-descent-sgd-with-python/
 
 # LOGISTIC REGRESSION
+# https://beckernick.github.io/logistic-regression-from-scratch/
+# http://aimotion.blogspot.kr/2011/11/machine-learning-with-python-logistic.html
