@@ -105,13 +105,13 @@ class LinearRegression():
     -------
     '''
 
-    # todo: add sgd/minibatch parameter here!!!!
+    # todo: add sgd/minibatch parameter, regularization lambda here!!!!
     def __init__(self, epochs=1000, lr=0.01, tol=1e-5):
         self.epochs=epochs
         self.lr=lr
         self.tol=tol
         self.weights = np.array([])
-        self.costs = []
+        self.costs_ = []
 
     # internal function for making hypothesis and getting cost
     def _getestimate(self, x_data, y_data, weights):
@@ -154,7 +154,7 @@ class LinearRegression():
         # or you can use zeroes with np.zeros():
         weights = np.zeros(x_data.shape[1])
 
-        # STEP 3: OPTIMIZE COST FUNCTIONS
+        # STEP 3: OPTIMIZE COST FUNCTION
         # using (stochastic) gradient descent
         iters = 0
 
@@ -172,6 +172,7 @@ class LinearRegression():
             # todo: modify above and below for STOCHASTIC GRADIENT DESCENT
 
             # get new predicted weights by stepping "backwards' along gradient
+            # todo: ADD REGULARIZATION HERE! (see link below)
             new_weights = weights - gradient * self.lr
 
             # check stopping condition
@@ -192,7 +193,7 @@ class LinearRegression():
         # update final weights
         self.weights = weights
 
-        return self.costs
+        return
 
     # predict on the test data
     # inputs : x data as np.array
@@ -231,6 +232,9 @@ class LinearRegression():
 
 # STOCHASTIC GRADIENT DESCENT
 # https://www.pyimagesearch.com/2016/10/17/stochastic-gradient-descent-sgd-with-python/
+
+# REGULARIZATION (FOR LINEAR REGRESSION)
+# https://www.analyticsvidhya.com/blog/2016/01/complete-tutorial-ridge-lasso-regression-python/
 
 # LOGISTIC REGRESSION
 # https://beckernick.github.io/logistic-regression-from-scratch/

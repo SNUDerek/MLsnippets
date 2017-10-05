@@ -113,6 +113,8 @@ class LinearRegression():
     ----------
     epochs : int
         maximum epochs of gradient descent
+    lmb : float
+        (L2) regularization parameter lambda
     lr : float
         learning rate
     sgd : int
@@ -126,13 +128,14 @@ class LinearRegression():
     -------
     '''
 
-    def __init__(self, epochs=1000, lr=0.01, sgd=0, tol=1e-5):
+    def __init__(self, epochs=1000, lmb=0.0, lr=0.01, sgd=0, tol=1e-5):
         self.epochs=epochs
+        self.lmb = lmb
         self.lr=lr
         self.sgd=sgd
         self.tol=tol
         self.weights = np.array([])
-        self.costs = []
+        self.costs_ = []
 
     # internal function for making hypothesis and getting cost
     def _getestimate(self, x_data, y_data, weights):
@@ -175,7 +178,7 @@ class LinearRegression():
         # or you can use zeroes with np.zeros():
         weights = np.zeros(x_data.shape[1])
 
-        # STEP 3: OPTIMIZE COST FUNCTIONS
+        # STEP 3: OPTIMIZE COST FUNCTION
         # using (stochastic) gradient descent
         iters = 0
         minibatch = batchGenerator(x_data, y_data, self.sgd)
@@ -202,7 +205,8 @@ class LinearRegression():
                 gradient = -(1.0 / x_batch.shape[0]) * difference.dot(x_batch)
 
             # get new predicted weights by stepping "backwards' along gradient
-            new_weights = weights - gradient * self.lr
+            # use lambda parameter for regularization
+            new_weights = (1.0 - 2*self.lmb * 2*self.lr) * weights - gradient * self.lr
 
             # check stopping condition
             if np.sum(abs(new_weights - weights)) < self.tol:
@@ -222,7 +226,7 @@ class LinearRegression():
         # update final weights
         self.weights = weights
 
-        return self.costs
+        return
 
     # predict on the test data
     # inputs : x data as np.array
@@ -264,6 +268,8 @@ class LogisticRegression():
         maximum epochs of gradient descent
     lr : float
         learning rate
+    lmb : float
+        (L2) regularization parameter lambda
     sgd : int
         batch size for stochastic gradient descent (0 = gradient descent)
     tol : float
@@ -275,10 +281,11 @@ class LogisticRegression():
     -------
     '''
 
-    def __init__(self, epochs=1000, lr=0.01, intercept=False, sgd=0, tol=1e-5):
+    def __init__(self, epochs=1000, intercept=False, lmb=0.0, lr=0.01, sgd=0, tol=1e-5):
         self.epochs = epochs
-        self.lr = lr
         self.intercept = intercept
+        self.lmb=lmb
+        self.lr = lr
         self.sgd = sgd
         self.tol = tol
         self.weights = np.array([])
@@ -352,7 +359,7 @@ class LogisticRegression():
                 gradient = -np.dot(x_data.T, difference)
 
             # get new predicted weights by stepping "backwards' along gradient
-            new_weights = weights - gradient * self.lr
+            new_weights = (1 - self.lr * self.lmb) * weights - gradient * self.lr
 
             # check stopping condition
             if np.sum(abs(new_weights - weights)) < self.tol:
@@ -422,6 +429,12 @@ class LogisticRegression():
 # STOCHASTIC GRADIENT DESCENT
 # https://www.pyimagesearch.com/2016/10/17/stochastic-gradient-descent-sgd-with-python/
 
+# REGULARIZATION (FOR LINEAR REGRESSION)
+# https://www.analyticsvidhya.com/blog/2016/01/complete-tutorial-ridge-lasso-regression-python/
+
 # LOGISTIC REGRESSION
 # https://beckernick.github.io/logistic-regression-from-scratch/
 # http://aimotion.blogspot.kr/2011/11/machine-learning-with-python-logistic.html
+
+# REGULATIZATION (FOR LOGISTIC REGRESSION)
+# https://courses.cs.washington.edu/courses/cse599c1/13wi/slides/l2-regularization-online-perceptron.pdf
