@@ -205,8 +205,8 @@ class LinearRegression():
                 gradient = -(1.0 / x_batch.shape[0]) * difference.dot(x_batch)
 
             # get new predicted weights by stepping "backwards' along gradient
-            # use lambda parameter for regularization
-            new_weights = (1.0 - 2*self.lmb * 2*self.lr) * weights - gradient * self.lr
+            # use lambda parameter for regularization (see link below; deep learning book CH5)
+            new_weights = (1.0 - self.lmb * self.lr) * weights - gradient * self.lr
 
             # check stopping condition
             if np.sum(abs(new_weights - weights)) < self.tol:
